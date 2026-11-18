@@ -15,9 +15,10 @@
 - [ ] Optional transcript validation and alignment checks
 
 ## v0.3 — Arabic speech baseline
-- [ ] Compare open-weight speech models and their exact licenses
+- [x] Research Arabic-capable open-weight model candidates and their license caveats
+- [ ] Select a baseline after reproducible installation and local hardware test
 - [ ] Arabic text normalization and pronunciation evaluation
-- [ ] Reproducible inference baseline with model cards and hardware notes
+- [ ] Inference wrapper with model-card and hardware notes
 
 ## v0.4 — Personal voice research
 - [ ] Consent-verified personal adaptation workflow
