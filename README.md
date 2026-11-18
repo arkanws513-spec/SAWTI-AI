@@ -9,6 +9,7 @@
 - Create a JSONL manifest with relative paths and SHA-256 fingerprints.
 - Create a compact JSON dataset summary.
 - Provide a private consent/provenance template and recording guide.
+- Document an Arabic speech-model shortlist with license and hardware caveats.
 
 ## Quick start
 Python 3.10+.
@@ -27,8 +28,8 @@ sawti validate-dataset datasets/my_voice/raw \\
 ## Privacy and consent
 Use only your own recordings or recordings with explicit permission for the intended use. Keep consent records, raw audio, transcripts, and model weights private and outside Git. Never use the project to impersonate someone, mislead listeners, or bypass identity checks.
 
-## Roadmap
-See [the roadmap](docs/roadmap.md), [dataset guide](docs/dataset-guide.md), and [model policy](docs/model-policy.md).
+## Roadmap and research
+See [the roadmap](docs/roadmap.md), [dataset guide](docs/dataset-guide.md), [model policy](docs/model-policy.md), and [Arabic model shortlist](docs/model-selection.md).
 
 ## Scope and licensing
 MIT applies to original project code only. Dependencies, datasets, pretrained checkpoints, and model weights have their own terms and must be reviewed separately. No paid API is required by the current toolkit.
