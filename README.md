@@ -1,35 +1,31 @@
 # SAWTI-AI
 **Personal AI Voice & Singing Engine** — an open-source, Arabic-first research project for a consent-based voice workflow.
 
-> Status: **v0.2.0 — dataset quality and provenance**. This release prepares and audits recordings. It does not yet train, clone, convert, or synthesize a voice.
+> Status: **v0.3.0-dev — dataset and transcript preparation**. This release prepares and audits data. It does not yet train, clone, convert, or synthesize a voice.
 
 ## Current capabilities
 - Inspect WAV recordings without modifying source files.
 - Detect unreadable files, unusual duration, non-mono audio, sample-rate mismatch, possible clipping, and very quiet/silent recordings.
-- Create a JSONL manifest with relative paths and SHA-256 fingerprints.
-- Create a compact JSON dataset summary.
-- Provide a private consent/provenance template and recording guide.
-- Document an Arabic speech-model shortlist with license and hardware caveats.
+- Create JSONL manifests with relative paths and SHA-256 fingerprints, plus dataset summaries.
+- Validate transcript CSV files against WAV files, including duplicate, missing, empty, and unsafe path checks.
+- Normalize Arabic text conservatively for comparison while preserving original transcripts.
+- Run automated tests on Python 3.10, 3.11, and 3.12 using GitHub Actions.
 
 ## Quick start
 Python 3.10+.
-
 ```bash
 python -m venv .venv
-# Windows: .venv\\Scripts\\activate
-# Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
 pip install -e .
-sawti validate-dataset datasets/my_voice/raw \\
-  --manifest datasets/my_voice/manifest.jsonl \\
-  --report datasets/my_voice/report.json
+sawti validate-dataset datasets/my_voice/raw --manifest datasets/my_voice/manifest.jsonl --report datasets/my_voice/report.json
+sawti validate-transcripts datasets/my_voice/transcripts.csv --audio-root datasets/my_voice/raw --report datasets/my_voice/transcript-report.json
 ```
+Transcript CSV columns: `file,text,language`; paths are relative to `--audio-root`.
 
 ## Privacy and consent
 Use only your own recordings or recordings with explicit permission for the intended use. Keep consent records, raw audio, transcripts, and model weights private and outside Git. Never use the project to impersonate someone, mislead listeners, or bypass identity checks.
 
-## Roadmap and research
-See [the roadmap](docs/roadmap.md), [dataset guide](docs/dataset-guide.md), [model policy](docs/model-policy.md), and [Arabic model shortlist](docs/model-selection.md).
+## Research
+See [roadmap](docs/roadmap.md), [dataset guide](docs/dataset-guide.md), [model policy](docs/model-policy.md), and [Arabic model shortlist](docs/model-selection.md).
 
-## Scope and licensing
-MIT applies to original project code only. Dependencies, datasets, pretrained checkpoints, and model weights have their own terms and must be reviewed separately. No paid API is required by the current toolkit.
+MIT applies to original project code only. Third-party dependencies, datasets, checkpoints, and weights retain their own licenses. No paid API is required by the current toolkit.
