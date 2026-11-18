@@ -1,38 +1,25 @@
 # Roadmap
-
 ## v0.1 — Foundation
-- [x] Repository structure and project metadata
-- [x] WAV dataset inspection
-- [x] JSONL manifest generation
-- [x] Basic tests
-
+- [x] Repository structure, WAV inspection, JSONL manifest, basic tests
 ## v0.2 — Dataset quality and provenance
-- [x] WAV integrity checks and unreadable-file reporting
-- [x] Duration, channels, sample-rate, peak and RMS checks
-- [x] SHA-256 fingerprints and relative paths
-- [x] Dataset summary JSON report
-- [x] Consent metadata template and recording guide
-- [ ] Optional transcript validation and alignment checks
-
-## v0.3 — Arabic speech baseline
-- [x] Research Arabic-capable open-weight model candidates and their license caveats
-- [ ] Select a baseline after reproducible installation and local hardware test
-- [ ] Arabic text normalization and pronunciation evaluation
-- [ ] Inference wrapper with model-card and hardware notes
-
-## v0.4 — Personal voice research
-- [ ] Consent-verified personal adaptation workflow
-- [ ] Speaker-independent evaluation and intelligibility tests
-- [ ] Local inference profile for modest hardware
-
-## v0.5 — Singing research
-- [ ] Singing dataset schema and pitch metadata
-- [ ] Melody-conditioned experiments
-- [ ] Arabic singing/nasheed prosody evaluation
-
+- [x] Integrity checks, duration/channels/sample-rate/peak/RMS checks
+- [x] SHA-256 fingerprints, summary report, consent template and recording guide
+## v0.3 — Transcript and Arabic text preparation
+- [x] CSV transcript validation against WAV files
+- [x] Duplicate, missing, empty transcript and unsafe path checks
+- [x] Conservative Arabic text normalization
+- [x] CI test matrix for Python 3.10–3.12
+- [ ] Curated Arabic pronunciation evaluation corpus
+## v0.4 — Arabic speech baseline
+- [ ] Reproduce one candidate from its official repository
+- [ ] Compare Egyptian and Modern Standard Arabic on identical test sentences
+- [ ] Record latency, RAM/VRAM, intelligibility and naturalness
+- [ ] Add inference adapter only after license and hardware validation
+## v0.5 — Personal voice research
+- [ ] Consent-verified adaptation, evaluation and local inference profile
+## v0.6 — Singing research
+- [ ] Singing dataset schema, pitch metadata and melody-conditioned experiments
 ## v1.0 — Studio
-- [ ] Recording/import interface
-- [ ] Text, melody, and performance controls
-- [ ] Export and project management
+- [ ] Recording/import interface, text and melody controls, export and projects
 
-Every milestone requires tests, documented hardware requirements, and separate license review for code, datasets, and weights. No milestone assumes paid cloud compute.
+Every milestone requires tests, documented hardware requirements, and separate license review. No milestone assumes paid cloud compute.
