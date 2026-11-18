@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "consent_id": "replace-with-random-id",
+  "speaker_label": "speaker_001",
+  "speaker_is_dataset_owner": true,
+  "permission_confirmed": false,
+  "permitted_uses": [],
+  "recording_date": "",
+  "withdrawal_contact": "",
+  "notes": "Do not store legal names, phone numbers, or sensitive identity details in the public repository."
+}
