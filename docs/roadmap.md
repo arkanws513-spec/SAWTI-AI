@@ -8,8 +8,8 @@
 - [x] CSV transcript validation against WAV files
 - [x] Duplicate, missing, empty transcript and unsafe path checks
 - [x] Conservative Arabic text normalization
+- [x] Original Egyptian and Modern Standard Arabic evaluation prompts
 - [x] CI test matrix for Python 3.10–3.12
-- [ ] Curated Arabic pronunciation evaluation corpus
 ## v0.4 — Arabic speech baseline
 - [ ] Reproduce one candidate from its official repository
 - [ ] Compare Egyptian and Modern Standard Arabic on identical test sentences
