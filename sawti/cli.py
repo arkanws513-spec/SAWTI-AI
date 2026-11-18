@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from sawti.dataset import inspect_dataset, write_manifest
+from sawti.dataset import inspect_dataset, summarize_dataset, write_manifest
 
 
 def main() -> None:
@@ -14,17 +14,25 @@ def main() -> None:
     validate = sub.add_parser("validate-dataset", help="Inspect WAV files and write a JSONL manifest")
     validate.add_argument("folder", type=Path)
     validate.add_argument("--manifest", type=Path, default=None)
+    validate.add_argument("--report", type=Path, default=None)
 
     args = parser.parse_args()
     if args.command == "validate-dataset":
         records = inspect_dataset(args.folder)
         manifest = args.manifest or (args.folder / "manifest.jsonl")
         write_manifest(records, manifest)
-        print(json.dumps({
-            "files": len(records),
-            "manifest": str(manifest),
-            "warnings": sum(bool(r["warnings"]) for r in records),
-        }, ensure_ascii=False, indent=2))
+        summary = summarize_dataset(records)
+        summary["manifest"] = str(manifest)
+        if args.report:
+            args.report.parent.mkdir(parents=True, exist_ok=True)
+            args.report.write_text(
+                json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            summary["report"] = str(args.report)
+        print(json.dumps(summary, ensure_ascii=False, indent=2))
+        if summary["errors"]:
+            raise SystemExit(2)
 
 
 if __name__ == "__main__":
