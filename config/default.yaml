@@ -1,0 +1,14 @@
+project:
+  name: SAWTI-AI
+  version: 0.1.0
+audio:
+  accepted_extensions: [".wav"]
+  target_sample_rate: 24000
+  target_channels: 1
+dataset:
+  minimum_clip_seconds: 1.0
+  maximum_clip_seconds: 20.0
+  clipping_peak_threshold: 0.999
+privacy:
+  require_documented_consent: true
+  commit_audio_to_git: false
